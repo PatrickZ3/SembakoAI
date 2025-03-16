@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatInput from './chatInput';
 
 export default function ChatBot() {
     return (
@@ -13,7 +14,10 @@ export default function ChatBot() {
                     </div>
                 </div>
             </div>
-            test
+            <div className='chat-messages'>
+                test
+            </div>
+            <ChatInput/>
         </div>
     )
 }
