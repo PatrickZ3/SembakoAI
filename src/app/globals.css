@@ -24,11 +24,18 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+.app-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .header{
   background: var(--textColor);
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 10vh;
 }
 
 .logo-container{
@@ -60,3 +67,38 @@ body {
 .header-subtitle {
   line-height: 1;
 }
+
+.chat-container{
+  background-color: var(--textColor);
+  margin: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-header{
+  background-color: var(--mainColor);
+  height: 13vh;
+}
+
+.chat-header-text{
+  padding: 1rem;
+}
+
+.chat-header-title {
+  color: var(--textColor);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.chat-header-subtitle {
+  color: var(--textColor);
+  font-size: 1.5rem;
+}
+
+.chat-header-title, 
+.chat-header-subtitle {
+  line-height: 1.1;
+}
+
