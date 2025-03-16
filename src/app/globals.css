@@ -1,26 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --mainColor: #2F855A;
+  --secondaryColor: #EDEDD7;
+  --textColor: #FFFFFF;
+  --chatBG: #E9E9E9;
+  --chatText: #000000;
+  --font-sans: 'Inria Sans', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  /* font-weight 300-700 */
+  /* font-style: italic */
+  font-family: var(--font-sans), sans-serif;
 }
 
 body {
-  background: var(--background);
+  background: var(--secondaryColor);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.header{
+  background: var(--textColor);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.logo{
+  padding: 0.15rem;
+}
+
+.header-text-container{
+  padding-left: 1rem;
+}
+
+.header-title {
+  color: var(--mainColor);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.header-subtitle {
+  color: var(--mainColor);
+  font-size: 0.9rem;
+}
+
+.header-title, 
+.header-subtitle {
+  line-height: 1;
 }
