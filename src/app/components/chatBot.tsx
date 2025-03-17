@@ -1,6 +1,7 @@
 "use client";
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import ChatInput from './chatInput';
+import Image from 'next/image';
 
 type Message = {
     id: string;
@@ -19,6 +20,7 @@ const INITIAL_MESSAGE: Message[] = [
 export default function ChatBot() {
     const [messages, setMessages] = React.useState<Message[]>(INITIAL_MESSAGE);
     const [input, setInput] = React.useState("");
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
     const handleSendMessage = (message: string) => {
         if (!message.trim) return;
@@ -39,7 +41,11 @@ export default function ChatBot() {
         setInput("");
     };
 
-
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages]);
 
     return (
         <div className='chat-container'>
@@ -53,17 +59,28 @@ export default function ChatBot() {
                     </div>
                 </div>
             </div>
-            <div className='chat-messages'>
+            <div className="chat-messages">
                 {messages.map((message) => (
                     <div
                         key={message.id}
-                        className={`chat-bubble ${message.role === "user" ? "user" : "bot"}`}
+                        className={`message-container ${message.role === "user" ? "user" : "bot"
+                            }`}
                     >
-                        {message.content}
+                        {message.role === "bot" && (
+                            <Image
+                                src="/logo.png"
+                                alt="Bot Logo"
+                                width={40}
+                                height={40}
+                                className="bot-logo"
+                            />
+                        )}
+                        <div className={`chat-bubble ${message.role}`}>{message.content}</div>
                     </div>
                 ))}
+                 <div ref={messagesEndRef} />
             </div>
-            <ChatInput onSend={handleSendMessage}/>
+            <ChatInput onSend={handleSendMessage} />
         </div>
     )
 }
