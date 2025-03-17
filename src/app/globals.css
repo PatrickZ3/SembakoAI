@@ -140,3 +140,34 @@ body {
   border-radius: 0.65rem;
   cursor: pointer;
 }
+
+.chat-messages {
+  flex-grow: 1; 
+  overflow-y: auto; 
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-bubble{
+  background-color: var(--chatBG);
+  border-radius: 0.5rem;
+  color: var(--chatText);
+  padding: 0.5rem;
+  margin: 0.3rem;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+  background-color: var(--chatBG);
+  color: var(--chatText);
+}
